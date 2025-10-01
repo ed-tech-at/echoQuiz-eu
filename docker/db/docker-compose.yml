@@ -1,0 +1,42 @@
+# possible local mariadb server
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb-container
+    # restart: unless-stopped
+    networks:
+      - mariadb_net
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpass
+      MARIADB_DATABASE: pmadb
+      MARIADB_USER: pmauser
+      MARIADB_PASSWORD: mypassword
+    volumes:
+      - ./data:/var/lib/mysql  # MySQL-Datenbank wird im Host-Ordner ./data gespeichert
+
+    ports:
+      - 3306:3306
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin-container
+    # restart: unless-stopped
+    depends_on:
+      - mariadb
+    networks:
+      - mariadb_net
+      
+    environment:
+      PMA_HOST: mariadb
+      #MYSQL_ROOT_PASSWORD: rootpass
+      #PMA_USER: pmauser
+      #PMA_PASSWORD: mypassword
+      PMA_ARBITRARY: 0
+      UPLOAD_LIMIT: 300M
+    ports:
+      - "3002:80"
+
+networks:
+  mariadb_net:
+    external: true

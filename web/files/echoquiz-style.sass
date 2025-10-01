@@ -1,0 +1,807 @@
+// Mixin for small devices (landscape phones, 576px and up)
+@mixin tiny
+  @media (min-width: 330px)
+    @content
+
+  // Mixin for small devices (landscape phones, 576px and up)
+@mixin small
+  @media (min-width: 576px)
+    @content
+
+// Mixin for medium devices (tablets, 768px and up)
+@mixin medium
+  @media (min-width: 768px)
+    @content
+
+  // Mixin for large devices (desktops, 992px and up)
+@mixin large
+  @media (min-width: 992px)
+    @content
+
+// Mixin for extra large devices (large desktops, 1200px and up)
+@mixin xlarge
+  @media (min-width: 1200px)
+    @content
+
+body
+  margin: 0
+
+*
+  box-sizing: border-box
+
+header
+  backdrop-filter: blur(3px)
+  border-bottom: 2px solid white
+  background: #ffffffc7
+  position: fixed
+  width: 100%
+  top: 0
+  height: 50px
+  +small
+    height: 60px
+  text-align: center
+  z-index: 10
+  display: flex
+  justify-content: space-between
+
+body.admin header
+  background: rgba(28, 141, 25, 0.51)
+  border-bottom: 2px solid #248f22
+
+
+.headerSpacer
+  height: 60px
+  +small
+    height: 70px
+
+
+footer
+  backdrop-filter: blur(3px)
+  border-top: 2px solid rgb(0, 0, 0)
+  background: #000000b2
+  color: white
+  a
+    color: white
+    padding: 0px 5px
+
+  /* position: fixed;
+  width: 100%
+  top: 0
+  min-height: 30px
+  text-align: center
+  z-index: 10
+
+header, main, footer
+  padding: 5px
+
+header
+  padding: 5px 15px
+  +medium
+    padding: 5px 10vw
+
+main
+  margin-top: 60px
+  min-height: calc(100vh - 90px)
+  +small
+    min-height: calc(100vh - 100px)
+  margin: 0 10px
+  +medium
+    max-width: 80vw
+    margin: auto
+
+
+.textSite
+  backdrop-filter: blur(6px)
+  background: #ffffff66
+  margin: 20px
+  padding: 10px
+  border-radius: 5px
+
+
+.expletus
+  font-family: "Expletus Sans", sans-serif
+  font-optical-sizing: auto
+
+  /* font-weight: <weight>;
+  font-style: normal
+
+.inter
+  font-family: "Inter", sans-serif
+  font-optical-sizing: auto
+  font-style: normal
+
+/* https://codepen.io/t_afif/pen/bGKKaPq
+ *https://freefrontend.com/css-background-patterns/
+
+html
+  --s:110px
+
+  /* control the size
+  --c:#f0fbcf
+  --b:#fcffeb
+  --_l:#0000 46%, var(--c) 47% 53%, #0000 54%
+  background: radial-gradient(100% 100% at 100% 100%, var(--_l)) var(--s) var(--s), radial-gradient(100% 100% at 0 0, var(--_l)) var(--s) var(--s), radial-gradient(100% 100%, #0000 22%, var(--c) 23% 29%, #0000 30% 34%, var(--c) 35% 41%, #0000 42%) var(--b)
+  background-size: calc(var(--s)*2) calc(var(--s)*2)
+
+mark
+  background: none
+
+#eqlogo
+  cursor: pointer
+
+.eqlogo
+  display: inline-block
+  text-decoration: none
+  span
+    border-radius: 5px
+    padding: 4px
+    display: inline-block
+    box-shadow: 2px 2px 7px #00000094
+    backdrop-filter: blur(10px)
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55)
+    font-size: 10px
+    +tiny
+      font-size: 15px
+    +small
+      font-size: 25px
+    font-weight: 900
+
+  .a, &.echo .a
+    transform: perspective(200px) rotateX(0deg) rotateY(-5deg) translateZ(0px) translateX(0px)
+    backdrop-filter: blur(14px)
+    border: 3px outset #63cd20
+    background: white
+    color: black
+
+  &.hoverable:hover .a, &.quiz .a
+    transform: perspective(200px) rotateX(0deg) rotateY(-40deg) translateZ(-30px) translateX(-13px)
+    backdrop-filter: blur(10px)
+
+  .b, &.echo .b
+    transform: perspective(200px) rotateX(0deg) rotateY(40deg) translateZ(-30px) translateX(13px)
+    background: #0a800ac9
+    color: white
+    border: 3px dashed #2d6408
+
+  &.hoverable:hover .b, &.quiz .b
+    transform: perspective(200px) rotateX(0deg) rotateY(5deg) translateZ(0px) translateX(0px)
+    backdrop-filter: blur(14px)
+
+.answers article
+  display: inline-block
+  padding: 20px
+  border-radius: 15px
+  border: 5px solid  #ffffff
+  backdrop-filter: blur(0px)
+  color: rgba(0, 0, 0, 0)
+  transition: opacity .0s, all .5s
+  opacity: 0
+  margin: 15px
+
+
+.answers.gradient
+  margin-bottom: 25px
+  article
+    padding: 4px
+    margin: 5px 0
+    border-color: white
+  .gradient, .force
+    align-items: center
+    width: 100%
+    background: linear-gradient(90deg, rgba(166, 215, 59, 0.82) 0%, rgba(177, 200, 68, 0.69) var(--pct1, 50%), rgba(165, 8, 200, 0.21) var(--pct1, 50%), rgba(165, 8, 200, 0.21) var(--pct2, 50%), rgba(206, 89, 59, 0.41) var(--pct2, 50%),  rgba(217, 92, 61, 0.36) 100%)
+    display: flex
+    justify-content: space-between
+    background-repeat: no-repeat
+    background-size: (100% var(--pctDone, 10%))
+  .force
+    background-size: (100% 100%)
+
+    .votingBtns
+      margin: 0
+      flex-shrink: 0
+
+  .forceWhite
+    background-size: 0 0
+
+.answers article
+
+  .votingBtns
+    display: flex
+    justify-content: center
+    // margin-top: 10px
+    flex-wrap: wrap
+  &.vis
+    /* backdrop-filter: blur(20px);
+    opacity: 1
+    backdrop-filter: blur(6px)
+    color: rgba(0, 0, 0, 1)
+    // border: 5px solid #ffffff96
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37)
+    transform: translate3d(0px, 10px, 1px)
+    background: #fff6
+  &.like 
+    border: 5px outset rgb(128, 218, 19)
+    background: rgba(147, 232, 45, 0.22)
+    backdrop-filter: blur(8px)
+
+    .likebtn
+      border-color: rgb(76, 106, 39)
+      background: #7eae2899
+      border-width: 2px
+
+  &.dislike
+    border: 5px outset rgb(200, 47, 8)
+    background: rgba(200, 47, 8, 0.21)
+
+    .dislikebtn
+      border-color: rgb(106, 48, 39)
+      background: #ae492899
+      border-width: 2px
+  &.openend
+    border: 5px outset rgb(146, 8, 200)
+    background: rgba(165, 8, 200, 0.21)
+
+    .openendbtn
+      border-color: rgb(93, 39, 106)
+      background: #6b28ae99
+      border-width: 2px
+
+  &.tolike
+    background: rgba(147, 232, 45, 0.15)
+    backdrop-filter: blur(8px)
+    .likebtn
+      box-shadow: #69e869 0px 0px 4px
+      border-color: rgb(118, 170, 55)
+  &.todislike
+    background: rgba(200, 47, 8, 0.16)
+    backdrop-filter: blur(8px)
+    .dislikebtn
+      box-shadow: #e86969 0px 0px 4px
+      border-color: rgb(170, 55, 55)
+  &.toopenend
+    background: rgba(184, 8, 200, 0.16)
+    backdrop-filter: blur(8px)
+    .openendbtn
+      box-shadow: #d769e8 0px 0px 4px
+      border-color: rgb(155, 55, 170)
+
+.frontend-grade
+  position: relative
+  top: 5px
+.admin .answers article
+  &.like 
+    .likebtn
+      outline: 3px solid rgb(76, 106, 39)
+      
+    
+  &.dislike
+    
+    .dislikebtn
+      outline: 3px solid rgb(106, 48, 39)
+  &.openend
+    .openendbtn
+      outline: 3px solid rgb(73, 41, 81)
+      
+.likebtn, .dislikebtn, .openendbtn, .eyebtn, .eyebtndown, .userwaiting, .alertBtn, .aibtn
+  border-radius: 5px
+  border: 2px solid
+  backdrop-filter: blur(6px)
+  padding: 4px
+  margin: 2px 6px
+  cursor: pointer
+  transition: opacity .0s, box-shadow .2s
+  font-size: 1em
+
+  &.margin-left
+    margin-left: 5px
+
+.likebtn
+  border-color: rgb(128, 218, 19)
+  background: #9ff7231f
+
+.dislikebtn, .alertBtn
+  border-color: rgb(200, 47, 8)
+  background: #f731231e
+
+.alertFormOpen .alertBtn
+  background: #79150e1e
+  border-color: rgb(135, 32, 6)
+
+.sendAlert
+  border-color: rgb(135, 32, 6)
+  background: #f06262
+  margin: 5px auto 0 auto
+
+.alertBtn
+  display: none
+.dislike .alertBtn, .admin .alertBtn
+  display: inline-block
+
+.openendbtn
+  border-color: rgb(146, 8, 200)
+  background: #bb23f71e
+
+.userwaiting
+  border-color: rgb(105, 105, 105)
+  background: #8080801e
+  color: #3e3e3e
+
+.aibtn
+  border-color: rgb(93, 216, 206)
+  background: #b8dee1
+  color: #115357
+  &.inactive
+    background: #b8dee1
+    color: #115357
+    border-color: rgb(93, 216, 206)
+    opacity: 0.5
+    pointer-events: none
+
+.eyebtn
+  border-color: rgb(54, 76, 218)
+  background: #2e23f71e
+
+.eyebtndown
+  border-color: rgb(8, 34, 200)
+  background: #2e23f71e
+  display: none
+
+.eyedown
+  .eyebtn
+    display: none
+  .eyebtndown
+    display: inline-block
+
+.answers article
+  &.eyedown, &.force
+    padding: 15px 20px
+
+.admin .answers article
+  &.eyedown, &.force
+    padding: 25px 20px
+
+
+.alertForm
+  position: relative
+  display: flex
+  flex-wrap: wrap
+  width: 275px
+  background: #ff002d3d
+  padding: 10px
+  border-radius: 10px
+  margin: auto
+  margin-top: 5px
+  h4
+    margin: 0
+  label
+    margin-top: 15px
+
+  input[type=checkbox]
+    height: 1.3em
+    width: 1.3em
+    margin: 0
+    accent-color: #d10077
+    vertical-align: bottom
+
+#ownAnswer
+  min-height: 100px
+  .answers
+    flex-wrap: nowrap
+    align-items: flex-end
+.largeBtn
+  display: flex
+  height: 2em
+  width: 2em
+  font-size: 1.7em
+  align-items: center
+  justify-content: center
+  border-radius: 15px
+  border-width: 5px
+  margin-left: 10px
+
+
+#submitAnswer
+  opacity: 1
+  transition: opacity 0.3s
+  &.opacity0
+    opacity: 0
+    pointer-events: none
+#inputs
+  display: flex
+  justify-content: center
+  align-items: normal
+  margin-top: 20px
+  flex-wrap: wrap
+
+  label
+    width: 100%
+    text-align: center
+  
+  .section
+    width: 100%
+    justify-content: center
+    display: flex
+    flex-wrap: wrap
+    margin-bottom: 30px
+
+  &.disabled
+    pointer-events: none
+
+input, textarea
+  background: #ffffff54
+  border-radius: 13px
+  font-size: 1em
+  padding: 5px 10px
+  border: 4px solid #ffffff8a
+  width: 100%
+
+  background: rgb(133 179 121 / 33%)
+  border: 2px solid rgb(134 164 116)
+
+
+  &:focus-visible
+    border-color: #4e74e8d4 !important
+    outline: 0px solid crimson
+    
+input[type='checkbox']
+  width: auto
+    
+input.large
+  // margin-top: 10px
+  background: #ffffff54
+  border-radius: 20px
+  font-size: 1em
+  padding: 20px
+  border: 4px solid #ffffff8a
+  width: 100%
+  max-width: 300px
+  margin-right: 10px
+  backdrop-filter: blur(4px)
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37)
+  transition: backdrop-filter .3s
+
+
+  &:focus-visible
+    border-color: #4e74e8d4
+    outline: 0px solid crimson
+    backdrop-filter: blur(6px)
+
+mark#q
+  display: block
+  margin-bottom: 15px
+
+mark#eye
+  max-height: 0
+  transition: max-height 0.5s, min-height 0.3s, opacity 0.3s
+  min-height: 0
+  display: block
+  opacity: 1
+  &.echoPhase
+    // min-height: 40px
+    max-height: 120px
+  &.opacity0
+    opacity: 0
+
+  p
+    margin: 0
+
+.beamer
+  mark#eye
+    &.echoPhase
+      max-height: 170px
+
+  
+    p
+      display: block
+      width: 100%
+      text-align: center
+      font-size: 2em
+      
+
+
+.consent
+  input
+    border-radius: 0
+    height: 1.5em
+    width: 1.5em
+    flex-shrink: 0
+    // &:invalid
+    //   outline: 4px solid red
+    // &:valid
+    //   outline: 2px solid #489648
+
+  text-align: left
+  span
+    text-align: left
+  accent-color: #489648
+  width: 100%
+  margin-top: 1em
+  margin-bottom: 1em
+
+.consentInfo
+  display: flex
+  width: 100%
+  text-align: left
+  align-items: center
+  gap: 7px
+  img
+    width: 2em
+
+.btn
+  padding: 0.4em 0.5em 0.5em 0.4em
+  border-radius: 0.7em
+  cursor: pointer
+  color: black
+  display: inline-block
+  background: #ffffff54
+  border: 4px solid #ffffff8a
+  // font-size: inherit
+
+
+  padding: 0.3em 0.4em 0.3em 0.3em
+  border-radius: 0.7em
+  cursor: pointer
+  color: black
+  display: inline-block
+  background: rgb(133 179 121 / 33%)
+  border: 2px solid rgb(99 205 32)
+  margin: .1em
+  width: auto
+
+.getin
+  font-size: 1.9em
+  background-color: #0e26fd4f
+  border: 4px solid #1c549d
+  backdrop-filter: blur(4px)
+  transition: backdrop-filter .3s
+  color: white
+
+  &:hover
+    border: 4px solid #2576b8
+    backdrop-filter: blur(7px)
+
+
+
+
+.signup
+  font-size: 1.9em
+  background-color: #a10efd4f
+  border: 4px solid #971c9d
+  backdrop-filter: blur(4px)
+  transition: backdrop-filter .3s
+  color: #971c9d
+
+
+  &:hover
+    border: 4px solid #c023cb
+    backdrop-filter: blur(7px)
+
+.newQuestion
+  display: flex
+  .questionbtn
+    background: #0a800ac9
+    border: 4px solid #2d6408
+    backdrop-filter: blur(4px)
+    font-size: 1.5em
+
+
+    &:hover
+        border: 4px solid #1c4203
+        backdrop-filter: blur(7px)
+
+  .questionTextInput
+    border: 4px solid #2d6408
+
+
+
+.question
+  text-align: center
+  padding: 0 15px
+
+.questionText
+  display: inline-block
+  backdrop-filter: blur(4px)
+  background: #0a800ac9
+  color: white
+  font-size: 1.5em
+  font-weight: 500
+  border: 4px dashed #2d6408
+  padding: 15px 40px
+  border-radius: 10px
+
+  transition: all .3s
+
+.questionBreak
+  background: rgb(10 128 10 / 67%)
+  border: 4px dashed #2d64085e
+  font-style: italic
+  
+.questionHistory
+  margin-bottom: 60px
+
+.font-mono
+  font-family: monospace
+
+textarea
+  font-family: "Inter", sans-serif
+
+
+
+body.admin .questionText, .echoPhase .questionText
+    padding: 2px 10px
+    font-size: 1em
+    border-width: 3px
+
+.answers
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-around
+  +medium
+    max-width: 80vw
+  margin: auto
+
+
+.badge
+  text-align: center
+  img
+    max-width: 300px
+    display: inline-block
+    filter: drop-shadow(3px 2px 4px #555)
+
+.headerLeft, .headerRight
+  width: 33%
+
+  .badge
+    position: relative
+    img
+      max-height: 35px
+      +small
+        max-height: 45px
+      position: absolute
+
+      right: calc( var(--i, 1) * 20px )
+      z-index: var(--i, 1)
+
+.beamer .headerRight
+  display: flex
+  align-items: center
+  justify-content: right
+  font-size: 1.5em
+  +small
+    font-size: 2em
+  a
+    color: #2d6408
+
+#beamerInfo
+  display: flex
+  justify-content: space-evenly
+  
+  #qrcode
+    padding: 10px
+
+  font-size: 1.5em
+  +small
+    font-size: 2em
+  p
+    text-align: center
+  a
+    color: #2d6408
+    font-size: 1.3em
+    padding: 0.3em 0
+    display: block
+  span
+    font-size: 0.6em
+    max-width: 16.1em
+    display: block
+
+
+#badgeCount
+  display: flex
+  justify-content: right
+  align-items: center
+  color: #357a6f
+  img
+    position: relative
+    margin-left: 5px
+
+.gptAnswer
+  border: 4px solid #c1f1f2
+  padding: 5px
+  color: #2828f2
+  border-radius: 7px
+.like .gptAnswer
+  background: #c6f289
+.dislike .gptAnswer
+  background: #f28989
+.openend .gptAnswer
+  background: #d989f2
+
+
+.questionFinalWrapper
+  padding-bottom: 50px
+  font-size: 1.2em
+  .stars
+    font-size: 1.6em
+.questionFinal
+  margin: 20px 10px
+
+  .stars
+    display: flex
+    i
+      padding: 5px
+      cursor: pointer
+
+.headerLeft
+  display: flex
+  justify-content: left
+  align-items: center
+  text-align: left  
+
+  font-size: 0.8em
+  +small
+    font-size: 1em
+
+.admin .headerLeft
+  color: white
+  a
+    color: white
+
+body.admin nav
+  display: flex
+  justify-content: space-evenly
+  flex-wrap: wrap
+  margin-top: 5px
+  
+  span
+    padding: 5px
+    border-radius: 8px
+    box-shadow: 2px 2px 7px #00000094
+    backdrop-filter: blur(10px)
+
+    &.nav-vor
+      background: #63cd20
+    &.nav-tn
+      background: #a10efd4f
+    &.nav-fragen
+      background: #0e26fd4f
+    &.nav-quiz 
+      background: #2d6408
+      color: white
+    &.nav-echo  
+      background: white
+
+.admin table.echoScore
+  border: 1px solid black
+  border-collapse: collapse
+  th, td
+    border: 1px solid black
+    padding: 5px
+    text-align: center
+
+.alert
+  display: block
+  border: red solid 2px
+  padding: 5px
+  margin: 10px
+
+.contextWrapper
+  // display: flex
+  // margin: 1em 0
+  width: 100%
+  textarea
+    font-size: 0.6em
+
+.questionMetaFlex
+  display: flex
+
+  gap: 10px
+  label
+
+    font-size: 0.8em
+    font-weight: bold
+  margin-top: 5px
+
+  .qId-count
+    display: block
+    text-align: center
+    margin-top: 5px
